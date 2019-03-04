@@ -1,9 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[ ]:
-
-
 import os
 from flask import Flask
 
@@ -19,13 +16,3 @@ def hello():
 
 if __name__ == "__main__":
     app.run (host="0.0.0.0", port= 8080)
-
-
-
-
-
-# In[ ]:
-
-
-
-
