@@ -1,19 +1,20 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-import os
-import socket
-from flask import Flask
+from flask import Flask,jsonify
+from validate_email import validate_email
 
-app = Flask (__name__)
+app = Flask(__name__)
 
-@app.route("/")
-def main():
-    return "welcome! server: " +  socket.gethostname()
 
-@app.route("/how are you")
-def hello():
-    return "Fine! And you?"
+@app.route ('/mail')
+def home():
+    return "Ingrese email: <./mail/someone@server.com> "
+	
 
-if __name__ == "__main__":
-    app.run (host="0.0.0.0", port= 8080)
+@app.route ('/mail/<string:mail>')
+def valida_mail(mail):
+	if   validate_email(mail) == True:
+		return  "Mail a validar: " + mail + ": OK"
+	return 	"Mail a validar: " + mail + " - ERROR"
+
