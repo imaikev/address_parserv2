@@ -18,3 +18,5 @@ def valida_mail(mail):
 		return  "Mail a validar: " + mail + ": OK"
 	return 	"Mail a validar: " + mail + " - ERROR"
 
+if __name__ == "__main__":
+    app.run (host="0.0.0.0", port= 8080)
