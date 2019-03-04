@@ -1,0 +1,49 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  annotations:
+    openshift.io/generated-by: OpenShiftWebConsole
+  creationTimestamp: '2019-03-04T13:14:42Z'
+  labels:
+    app: email-valid
+  name: email-valid-docker
+  namespace: email-validate
+  resourceVersion: '3453964847'
+  selfLink: >-
+    /apis/build.openshift.io/v1/namespaces/email-validate/buildconfigs/email-valid
+  uid: 7918290d-3e7f-11e9-ba57-0ab8769191d3
+spec:
+  nodeSelector: null
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'email-valid:latest'
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    git:
+      ref: master
+      uri: 'https://github.com/imaikev/mail_validator.git'
+    type: Git
+  strategy:
+    dockerStrategy:
+      from:
+        kind: DockerImage
+        name: 'ubuntu:16.04'
+        namespace: openshift
+    type: Docker
+  triggers:
+    - imageChange:
+        lastTriggeredImageID: >-
+          docker-registry.default.svc:5000/openshift/python@sha256:9f044e4c0ee877dd9b2e0108d8b33f034977f87a746cfccb7defc9a588144b2d
+      type: ImageChange
+    - type: ConfigChange
+    - generic:
+        secret: 4182dc3aa4300591
+      type: Generic
+    - github:
+        secret: 8036a13e8c59a791
+      type: GitHub
+status:
+  lastVersion: 2
