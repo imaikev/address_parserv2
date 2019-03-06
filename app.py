@@ -15,8 +15,10 @@ def home():
 @app.route ('/mail/<string:mail>')
 def valida_mail(mail):
 	if   validate_email(mail) == True:
-		return  "Mail a validar: " + mail + ": OK"
-	return 	"Mail a validar: " + mail + " - ERROR"
+		x =  [{ 'name': mail , 'status': 'OK'}]
+		return jsonify(x)
+	y =  [{ 'name': mail , 'status': 'ERROR'}]
+	return jsonify(y)
 
 if __name__ == "__main__":
     app.run (host="0.0.0.0", port= 8080)
