@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-from flask import Flask,jsonify
+from flask import Flask,jsonify,request
 from validate_email import validate_email
 
 app = Flask(__name__)
