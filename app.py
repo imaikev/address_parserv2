@@ -6,7 +6,6 @@ from validate_email import validate_email
 
 app = Flask(__name__)
 
-
 @app.route ('/')
 def home():
     return "Ingrese email: <./mail/someone@server.com> "
