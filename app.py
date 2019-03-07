@@ -24,9 +24,9 @@ def valida_mail_json():
 	request_data = request.get_json()
 	mail = request_data['mail']
 	if   validate_email(mail) == True:
-		x =  [{ 'name': mail , 'status': 'OK', 'server': socket.gethosname()}]
+		x =  [{ 'name': mail , 'status': 'OK', 'server': socket.gethostname()}]
 		return jsonify(x)
-	y =  [{ 'name': mail , 'status': 'ERROR', 'server': socket.gethosname()}]
+	y =  [{ 'name': mail , 'status': 'ERROR', 'server': socket.gethostname()}]
 	return jsonify(y)
 
 
