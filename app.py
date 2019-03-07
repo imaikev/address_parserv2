@@ -16,9 +16,9 @@ def home():
 @app.route ('/mail/<string:mail>')
 def valida_mail(mail):
 	if   validate_email(mail) == True:
-		x =  [{ 'name': mail , 'status': 'OK'}]
+		x =  [{ 'name': mail , 'status': 'OK', 'server': socket.gethostname()}]
 		return jsonify(x)
-	y =  [{ 'name': mail , 'status': 'ERROR'}]
+	y =  [{ 'name': mail , 'status': 'ERROR', 'server': socket.gethostname()}]
 	return jsonify(y)
 
 @app.route ('/json', methods=['POST'])
