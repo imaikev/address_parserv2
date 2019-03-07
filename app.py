@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-from flask import Flask,jsonify,request
+from flask import Flask,jsonify,request,socket
 from validate_email import validate_email
 
 app = Flask(__name__)
@@ -24,9 +24,9 @@ def valida_mail_json():
 	request_data = request.get_json()
 	mail = request_data['mail']
 	if   validate_email(mail) == True:
-		x =  [{ 'name': mail , 'status': 'OK'}]
+		x =  [{ 'name': mail , 'status': 'OK', 'server': socket.gethosname()}]
 		return jsonify(x)
-	y =  [{ 'name': mail , 'status': 'ERROR'}]
+	y =  [{ 'name': mail , 'status': 'ERROR', 'server': socket.gethosname()}}]
 	return jsonify(y)
 
 
