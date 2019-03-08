@@ -11,8 +11,12 @@ app = Flask(__name__)
 @app.route ('/')
 def home():
     return "Ingrese email: <./mail/someone@server.com> "
-	
 
+@app.route ('/file')
+def file_read():
+	str = open('requirements.txt', 'r').read()
+	return str
+	
 @app.route ('/mail/<string:mail>')
 def valida_mail(mail):
 	if   validate_email(mail) == True:
