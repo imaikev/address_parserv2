@@ -1,4 +1,3 @@
 pip
 flask
 validate_email
-pyodbc==4.0.26
