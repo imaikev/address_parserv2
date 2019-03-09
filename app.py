@@ -3,7 +3,7 @@
 
 from flask import Flask,jsonify,request
 from validate_email import validate_email
-import socket ,os , pyodbc , json
+import socket ,os ,  json
 
 app = Flask(__name__)
 
@@ -58,6 +58,7 @@ def valida_mail_json():
 	
 @app.route ('/DB_VAR')
 def DB_VAR():
+	import pyodbc
 	cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=' + os.environ.get('DATABASE_HOST') + ','+ os.environ.get('DATABASE_PORT') + ';DATABASE=' + os.environ.get('DATABASE_NAME') + ';UID=' + os.environ.get('DATABASE_USER') + ';PWD=' + os.environ.get('DATABASE_PASSWORD') + '')
 	cursor = cnxn.cursor()
 	cursor.execute("SELECT TOP 100 [de_direccion], de_verificado   FROM [Staging].[dbo].[st_cob_cl_dir_electronica_bkp]")
@@ -79,6 +80,7 @@ def DB_VAR():
 
 @app.route ('/DB_PLANO')
 def DB_PLANO():
+	import pyodbc
 	cnxn = pyodbc.connect('DRIVER={SQL Server};SERVER=DESAMSSQL22,1148;DATABASE=DWC;UID=DTSDESA;PWD=*Paspa2')
 	cursor = cnxn.cursor()
 	cursor.execute("SELECT TOP 100 [de_direccion], de_verificado   FROM [Staging].[dbo].[st_cob_cl_dir_electronica_bkp]")
