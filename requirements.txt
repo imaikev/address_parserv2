@@ -1,4 +1,4 @@
+unixODBC-devel
 pip
 flask
 validate_email
-unixODBC
