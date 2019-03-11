@@ -10,7 +10,6 @@ app = Flask(__name__)
 
 @app.route ('/')
 def home():
-	!yum list installed
     return "Ingrese email: <./mail/someone@server.com> "
 
 	
