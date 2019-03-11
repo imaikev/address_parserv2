@@ -1,4 +1,4 @@
 #!/bin/bash
 echo "Before assembling"
-ls -lta
+id
 #yum install unixODBC
