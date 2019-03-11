@@ -1,4 +1,3 @@
 pip
 flask
 validate_email
-python-pyodbc
