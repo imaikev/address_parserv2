@@ -2,7 +2,7 @@ echo "Installing libpostal..."
 git clone https://github.com/openvenues/libpostal
 cd libpostal
 ./bootstrap.sh
-./configure
+./configure --datadir=[/opt/app]
 make -j4
-sudo make install
-sudo ldconfig
+make install
+ldconfig
