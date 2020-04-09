@@ -1,4 +1,5 @@
 echo "Running custom assemble"
 git clone https://github.com/openvenues/libpostal
 pwd
+ls .
 ./libpostal/bootstrap.sh
