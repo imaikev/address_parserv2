@@ -1,4 +1,3 @@
-#!/bin/bash
-echo "Before assembling"
+#!/bin/sh
 
-yum install unixODBC
+echo "Running custom assemble"
