@@ -1,0 +1,5 @@
+#!/bin/sh
+echo "Install prerequisites..."
+apt-get install curl autoconf automake libtool pkg-config
+echo "Installing libpostal..."
+pip install postal
